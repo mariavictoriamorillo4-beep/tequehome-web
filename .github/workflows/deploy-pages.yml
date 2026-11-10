@@ -42,6 +42,12 @@ jobs:
           page.write_text(html.replace('src="../', 'src="./'), encoding="utf-8")
           PY
 
+      - name: Verify site bundle
+        run: |
+          test -s _site/index.html
+          test -d _site/img
+          test -n "$(find _site -maxdepth 1 -type f \( -name '*.jpg' -o -name '*.jpeg' \) -print -quit)"
+
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
