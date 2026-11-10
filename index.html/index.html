@@ -1,0 +1,608 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tequehome · Sabores venezolanos para compartir</title>
+  <meta name="description" content="En Tequehome preparamos comida y panadería venezolana en Astoria, Queens, NY. Tequeños, golfeados, cachitos, pan de jamón, hallacas y pedidos por WhatsApp.">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.577.0/dist/umd/lucide.min.js" type="text/javascript"></script>
+  <script src="https://cdn.tailwindcss.com/3.4.17" type="text/javascript"></script>
+  <style>
+    :root{--cream:#fff9ef;--paper:#ffffff;--ink:#252019;--muted:#675b4b;--gold:#e9a427;--gold-dark:#a85e0a;--line:#eadbc5;--brown:#795d43}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:'DM Sans',sans-serif;color:var(--ink);background:rgb(255, 250, 243)}
+    h1,h2,h3{font-family:'Fraunces',serif}
+    :focus-visible{outline:3px solid var(--gold-dark);outline-offset:3px}
+    .site-header{background:#fffdf8;box-shadow:0 3px 20px #604c3012}
+    .nav-link:hover,.footer-link:hover{color:var(--gold-dark)}
+    .hero{position:relative;isolation:isolate;overflow:hidden;background:radial-gradient(ellipse at 78% 38%,#fff 0%,#fff8e9 51%,#f8ebd5 100%)}
+    .hero:before{content:"";position:absolute;inset:0;z-index:-1;opacity:0}
+    .hero-ring{position:absolute;width:min(66vw,650px);aspect-ratio:1;border:1px solid #c8914155;border-radius:50%;right:-13%;top:4%;pointer-events:none}
+    .hero-ring:after{content:"";position:absolute;inset:36px;border:1px solid #c8914130;border-radius:50%}
+    .hero-glow{position:absolute;width:320px;height:320px;border-radius:50%;background:#f3cc7960;filter:blur(80px);left:-140px;bottom:-160px;pointer-events:none}
+    .hero-logo-frame{position:relative;isolation:isolate;background:radial-gradient(circle at 28% 22%,#fffdf7 0%,#fffaf0 42%,#f8edda 100%);box-shadow:0 25px 65px #694e2820, inset 0 0 0 1px #ead7b8, inset 0 0 42px #e9a42712;overflow:hidden}
+    .hero-logo-frame:before{content:"";position:absolute;inset:12%;border:1px solid #c8914130;border-radius:32%;transform:rotate(12deg);pointer-events:none}
+    .hero-logo-frame:after{content:"";position:absolute;width:150px;height:150px;right:-72px;bottom:-72px;border:1px solid #795d4325;border-radius:50%;box-shadow:0 0 0 18px #e9a4270d,0 0 0 36px #795d4308;pointer-events:none}
+    .hero-logo-frame img{position:relative;z-index:1}
+    .construction-stage{position:relative;isolation:isolate}
+    .construction-stage:before{content:"";position:absolute;inset:7% -4% 4%;border:1px dashed #a85e0a66;border-radius:28px;z-index:-1}
+    .construction-curtain{position:absolute;z-index:2;top:9%;right:4%;width:44%;height:72%;border-radius:10px 24px 24px 10px;background:repeating-linear-gradient(90deg,#e9a427 0 14px,#fff4d7 14px 28px);box-shadow:-16px 18px 30px #604c3025;transform-origin:right center;animation:curtain-breathe 5s ease-in-out infinite}
+    .construction-curtain:after{content:"";position:absolute;inset:14px;border:1px solid #a85e0a55;border-radius:6px 18px 18px 6px}
+    .construction-tape{position:absolute;z-index:3;left:4%;bottom:15%;width:92%;padding:7px 0;text-align:center;background:#252019;color:#fff9ef;font-size:11px;font-weight:700;letter-spacing:.2em;transform:rotate(-4deg);box-shadow:0 8px 16px #604c3020}
+    .construction-sign{position:absolute;z-index:4;left:8%;top:8%;padding:13px 18px;background:#fffdf8;border:2px solid #252019;box-shadow:7px 8px 0 #e9a427;transform:rotate(-3deg);font-size:11px;font-weight:800;letter-spacing:.16em}
+    .construction-progress{position:absolute;z-index:4;left:12%;bottom:7%;width:34%;height:5px;border-radius:99px;background:#eadbc5;overflow:hidden}
+    .construction-progress:after{content:"";display:block;width:58%;height:100%;background:#e9a427;animation:progress 3.8s ease-in-out infinite alternate}
+    @keyframes curtain-breathe{0%,100%{transform:translateX(0)}50%{transform:translateX(9px)}}
+    @keyframes progress{from{transform:translateX(-100%)}to{transform:translateX(100%)}}
+    .rise{animation:rise .75s both}
+    @keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+    .product-card{transition:transform .25s,box-shadow .25s;box-shadow:0 12px 35px #624d2910;display:flex;flex-direction:column;justify-content:space-between}
+    .product-card:hover{transform:translateY(-5px);box-shadow:0 20px 42px #624d2923}
+    .product-art{height:165px;overflow:hidden;border-radius:18px;background:radial-gradient(circle,#fff9ec,#f7e8cc 72%,#efdab7);border:1px solid #eadbc5}
+    .product-art img{display:block;width:100%;height:100%;object-fit:cover;object-position:center;background:#fffdf9}
+    .gallery figure img{object-position:center 72%}
+    .soft-grid{background-image:linear-gradient(#795d430b 1px,transparent 1px),linear-gradient(90deg,#795d430b 1px,transparent 1px);background-size:28px 28px}
+    .action{background:var(--gold);color:var(--ink);transition:background .2s,transform .2s}
+    .action:hover{background:#f3b749;transform:translateY(-2px)}
+    .outline-action{border:2px solid var(--brown);color:var(--ink);transition:background .2s}
+    .outline-action:hover{background:#f8ebd5}
+    .drawer-backdrop{background:#2520199c}
+    .drawer{box-shadow:-20px 0 60px #30251b25}
+    .toast{transition:opacity .2s,transform .2s}
+    .variant-select{width:100%;border:1.5px solid var(--line);background:#fffdf8;border-radius:14px;padding:10px 12px;font-size:14px;font-weight:600;color:var(--ink);margin-top:12px;cursor:pointer}
+    @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
+  </style>
+</head>
+<body data-template-id="__page-root" class="w-full" style="background: rgb(255, 250, 243);">
+
+  <!-- HEADER / NAVEGACIÓN -->
+  <header class="site-header sticky top-0 z-30 w-full">
+    <nav class="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3 px-4 py-2 md:px-8" aria-label="Navegación principal">
+      <a href="#inicio" aria-label="Tequehome, ir al inicio" class="flex items-center gap-2">
+        <img data-template-id="nav-logo" loading="lazy" class="canva-image h-14 w-20 object-contain" src="img/logo.png" onerror="this.src='img/logo-original.jpg'" alt="Logo original de Tequehome">
+      </a>
+      <div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm font-semibold md:gap-x-6">
+        <a data-template-id="nav-inicio" href="#inicio" class="canva-link nav-link" style="color: rgb(37, 32, 25); font-size: 16px;">Inicio</a>
+        <a data-template-id="nav-menu" href="#menu" class="canva-link nav-link" style="color: rgb(37, 32, 25); font-size: 16px;">Menú</a>
+        <a data-template-id="nav-personalizado" href="#personaliza" class="canva-link nav-link" style="color: rgb(37, 32, 25); font-size: 16px;">Pedido personalizado</a>
+        <a data-template-id="nav-contacto" href="#contacto" class="canva-link nav-link" style="color: rgb(37, 32, 25); font-size: 16px;">Contacto</a>
+      </div>
+      <div class="flex flex-wrap items-center gap-2">
+        <a data-template-id="nav-whatsapp" href="https://wa.link/yai5h1" target="_blank" rel="noopener noreferrer" class="canva-button action inline-flex min-h-11 items-center rounded-full px-4 py-2 text-sm font-bold" style="background: rgb(233, 164, 39); color: rgb(37, 32, 25); font-size: 16px;">Pedir por WhatsApp</a>
+        <button id="open-cart" type="button" class="outline-action flex min-h-11 items-center gap-2 rounded-full px-4 py-2 font-bold" aria-label="Abrir carrito">
+          <i data-lucide="shopping-bag" class="h-5 w-5" aria-hidden="true"></i>
+          <span data-template-id="cart-label" class="canva-text" style="color: rgb(37, 32, 25); font-size: 16px;">Carrito</span>
+          <span id="cart-count" class="rounded-full bg-[#f4e3bf] px-2 text-sm" aria-live="polite">0</span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section id="inicio" data-template-id="hero-section" class="canva-section hero w-full px-5 py-16 md:py-24" style="background: radial-gradient(rgb(255, 255, 255), rgb(255, 248, 233), rgb(248, 235, 213));">
+      <div class="hero-ring" aria-hidden="true"></div>
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="relative mx-auto grid max-w-6xl items-center gap-10 md:grid-cols-[1fr_1fr] md:gap-16">
+        <div class="rise order-2 text-center md:order-1 md:text-left">
+          <p data-template-id="hero-eyebrow" class="canva-text mb-5 font-bold uppercase tracking-[.25em]" style="color: rgb(138, 87, 14); font-size: 13px;">DE NUESTRA MASA A TU MESA</p>
+          <h1 data-template-id="hero-title" class="canva-text max-w-3xl text-[clamp(3.2rem,8vw,7rem)] font-semibold uppercase leading-[.93] tracking-[-.055em]" style="color: rgb(37, 32, 25); font-weight: 600; font-size: 32px;">COMING SOON</h1>
+          <p data-template-id="hero-description" class="canva-text mt-7 max-w-xl leading-relaxed" style="color: rgb(81, 70, 53); font-size: 19px;">Estamos preparando algo delicioso.</p>
+          <a data-template-id="hero-button" href="#menu" class="canva-button action mt-9 inline-flex min-h-12 items-center rounded-full px-7 py-3 font-bold" style="background: rgb(233, 164, 39); color: rgb(37, 32, 25); font-weight: 700; font-size: 16px;">Explorar el menú</a>
+          <p data-template-id="hero-note" class="canva-text mt-5" style="color: rgb(121, 93, 67); font-size: 14px;">Masa, pan y cariño en cada encuentro.</p>
+          <p data-template-id="hero-address" class="canva-text mt-4 font-semibold" style="color: rgb(121, 93, 67); font-weight: 600; font-size: 16px;">4117 31st Av, Astoria, Queens, New York 11103</p>
+        </div>
+        <div class="rise construction-stage relative order-1 mx-auto w-full max-w-lg md:order-2" style="animation-delay:.16s">
+          <div class="construction-sign">EN CONSTRUCCIÓN</div>
+          <div class="construction-curtain" aria-hidden="true"></div>
+          <div class="construction-tape" aria-hidden="true">PRÓXIMAMENTE · TEQUEHOME · PRÓXIMAMENTE</div>
+          <div class="construction-progress" aria-hidden="true"></div>
+          <div class="absolute bottom-3 left-0 text-4xl" aria-hidden="true">🥖</div>
+          <div class="absolute bottom-5 right-1 text-3xl" aria-hidden="true">🌾</div>
+          <div class="relative mx-auto aspect-square max-w-md rounded-[42%] border border-[#d9b479] p-5 md:p-8">
+            <div class="hero-logo-frame flex h-full items-center justify-center rounded-[38%] p-5 md:p-8">
+              <img data-template-id="hero-logo" loading="lazy" class="canva-image aspect-square w-full object-contain" src="img/logo-original.jpg" onerror="this.src='img/logo.png'" alt="Logo original de Tequehome">
+            </div>
+          </div>
+          <span class="absolute -bottom-4 left-3 text-4xl" aria-hidden="true">🥖</span>
+          <span class="absolute -right-2 top-4 text-4xl" aria-hidden="true">🌾</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTRO SECTION -->
+    <section data-template-id="intro-section" class="canva-section soft-grid px-5 py-16" style="background: rgb(255, 249, 239);">
+      <div class="mx-auto max-w-4xl text-center">
+        <p data-template-id="intro-kicker" class="canva-text mb-3 font-bold uppercase tracking-[.25em]" style="color: rgb(138, 87, 14); font-size: 13px;">SABORES PARA REUNIRNOS</p>
+        <h2 data-template-id="intro-title" class="canva-text" style="color: rgb(37, 32, 25); font-weight: 600; font-size: 24px;">Un pedacito de Venezuela para compartir.</h2>
+        <p data-template-id="intro-copy" class="canva-text mx-auto mt-5 max-w-2xl leading-relaxed" style="color: rgb(81, 70, 53); font-size: 16px;">En Tequehome preparamos comida venezolana para familias y personas mayores de edad que quieren volver a disfrutar sus sabores de siempre o probarlos por primera vez. Recetas para sentarse juntos a la mesa y disfrutar sin prisa.</p>
+      </div>
+    </section>
+
+    <!-- GALERÍA -->
+    <section id="galeria" class="px-5 py-16 md:px-8">
+      <div class="mx-auto max-w-7xl">
+        <div class="mb-8 text-center">
+          <p data-template-id="gallery-kicker" class="canva-text font-bold uppercase tracking-[.25em]" style="color: rgb(138, 87, 14); font-size: 13px;">NUESTRA COCINA</p>
+          <h2 data-template-id="gallery-title" class="canva-text mt-2" style="color: rgb(37, 32, 25); font-weight: 600; font-size: 28px;">Momentos que saben a Venezuela</h2>
+        </div>
+        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <figure class="overflow-hidden rounded-3xl bg-white shadow-[0_12px_35px_rgba(98,77,41,0.08)]">
+            <img loading="lazy" class="h-64 w-full object-cover transition-transform duration-300 hover:scale-105" src="img/tequenos.jpg" onerror="this.style.display='none';this.parentElement.textContent='🧀'" alt="Tequeños venezolanos recién hechos">
+            <figcaption class="px-4 py-3 text-sm font-semibold text-[#252019]">Tequeños</figcaption>
+          </figure>
+          <figure class="overflow-hidden rounded-3xl bg-white shadow-[0_12px_35px_rgba(98,77,41,0.08)]">
+            <img loading="lazy" class="h-64 w-full object-cover object-center transition-transform duration-300 hover:scale-105" src="../cachitos.jpg" onerror="this.style.display='none';this.parentElement.textContent='🥐'" alt="Cachitos venezolanos">
+            <figcaption class="px-4 py-3 text-sm font-semibold text-[#252019]">Cachitos</figcaption>
+          </figure>
+          <figure class="overflow-hidden rounded-3xl bg-white shadow-[0_12px_35px_rgba(98,77,41,0.08)]">
+            <img loading="lazy" class="h-64 w-full object-cover transition-transform duration-300 hover:scale-105" src="../golfeados.jpeg" onerror="this.style.display='none';this.parentElement.textContent='🥮'" alt="Golfeados venezolanos">
+            <figcaption class="px-4 py-3 text-sm font-semibold text-[#252019]">Golfeados</figcaption>
+          </figure>
+          <figure class="overflow-hidden rounded-3xl bg-white shadow-[0_12px_35px_rgba(98,77,41,0.08)]">
+            <img loading="lazy" class="h-64 w-full object-cover object-center transition-transform duration-300 hover:scale-105" src="../pan de jamon.jpeg" onerror="this.style.display='none';this.parentElement.textContent='🥖'" alt="Pan de jamón venezolano">
+            <figcaption class="px-4 py-3 text-sm font-semibold text-[#252019]">Pan de Jamón</figcaption>
+          </figure>
+          <figure class="overflow-hidden rounded-3xl bg-white shadow-[0_12px_35px_rgba(98,77,41,0.08)]">
+            <img loading="lazy" class="h-64 w-full object-cover object-center transition-transform duration-300 hover:scale-105" src="../box tequenos.jpeg" onerror="this.style.display='none';this.parentElement.textContent='📦'" alt="Caja de tequeños y empanadas">
+            <figcaption class="px-4 py-3 text-sm font-semibold text-[#252019]">Boxes para compartir</figcaption>
+          </figure>
+          <figure class="overflow-hidden rounded-3xl bg-white shadow-[0_12px_35px_rgba(98,77,41,0.08)]">
+            <img loading="lazy" class="h-64 w-full object-cover transition-transform duration-300 hover:scale-105" src="img/cenas.jpg" onerror="this.style.display='none';this.parentElement.textContent='🍽️'" alt="Cena navideña con sabores venezolanos">
+            <figcaption class="px-4 py-3 text-sm font-semibold text-[#252019]">Cenas especiales</figcaption>
+          </figure>
+          <figure class="overflow-hidden rounded-3xl bg-white shadow-[0_12px_35px_rgba(98,77,41,0.08)]">
+            <img loading="lazy" class="h-64 w-full object-cover transition-transform duration-300 hover:scale-105" src="img/logo-original.jpg" onerror="this.style.display='none';this.parentElement.textContent='✨'" alt="Logo de Tequehome">
+            <figcaption class="px-4 py-3 text-sm font-semibold text-[#252019]">Tequehome</figcaption>
+          </figure>
+          <figure class="overflow-hidden rounded-3xl bg-white shadow-[0_12px_35px_rgba(98,77,41,0.08)]">
+            <img loading="lazy" class="h-64 w-full object-cover transition-transform duration-300 hover:scale-105" src="img/logo.png" onerror="this.style.display='none';this.parentElement.textContent='🌾'" alt="Logo de Tequehome en color">
+            <figcaption class="px-4 py-3 text-sm font-semibold text-[#252019]">Marca</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- MENÚ COMPLETO CON PRECIOS -->
+    <section id="menu" class="px-5 py-20 md:px-8">
+      <div class="mx-auto max-w-7xl">
+        <p data-template-id="menu-kicker" class="canva-text font-bold uppercase tracking-[.25em]" style="color: rgb(138, 87, 14); font-size: 13px;">DE LA COCINA DE TEQUEHOME</p>
+        <h2 data-template-id="menu-title" class="canva-text mt-2" style="color: rgb(37, 32, 25); font-weight: 600; font-size: 28px;">Nuestro menú</h2>
+        <p data-template-id="menu-note" class="canva-text mt-2" style="color: rgb(103, 91, 75); font-size: 16px;">Elige la presentación en cada producto y agrégala al carrito. Tu pedido se enviará directo por WhatsApp con el cálculo total.</p>
+
+        <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+
+          <!-- 1. GOLFEADOS (DESTACADO) -->
+          <article class="product-card rounded-3xl border-2 border-[#e9a427] bg-white p-6 sm:col-span-2 lg:col-span-2">
+            <div class="grid items-center gap-6 sm:grid-cols-2">
+              <div class="product-art h-56 sm:h-full">
+                <img loading="lazy" class="block h-full w-full object-cover object-center" src="../golfeados.jpeg" onerror="this.style.display='none';this.parentElement.textContent='🥮'" alt="Golfeados venezolanos con queso">
+              </div>
+              <div>
+                <span class="inline-block rounded-full px-3 py-1 text-xs font-bold" style="background: rgb(244, 227, 191); color: rgb(96, 64, 23);">★ CLÁSICO DE LA CASA</span>
+                <h3 class="mt-3 text-2xl text-[#252019]">Golfeados</h3>
+                <p class="mt-2 text-sm leading-relaxed text-[#675b4b]">Un clásico venezolano dulce con papelón y anís que merece su propio momento en la mesa.</p>
+                
+                <label class="mt-4 block text-xs font-bold uppercase tracking-wider text-[#795d43]">Selecciona tu opción:</label>
+                <select class="variant-select">
+                  <option value="Golfeados con queso" data-price="5">Golfeado con queso — $5.00</option>
+                  <option value="Golfeados 6 und congelados" data-price="24">Golfeados 6 und congelados — $24.00</option>
+                  <option value="Golfeados sin queso 6 und (Congelados)" data-price="24">Golfeados sin queso 6 und — $24.00</option>
+                </select>
+
+                <button type="button" class="add-variant-btn action mt-4 w-full min-h-11 rounded-full px-5 py-2.5 font-bold">
+                  Agregar al carrito
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 2. CACHITOS -->
+          <article class="product-card rounded-3xl bg-white p-5">
+            <div>
+              <div class="product-art">
+                <img loading="lazy" class="block h-full w-full object-cover object-center" src="../cachitos.jpg" onerror="this.style.display='none';this.parentElement.textContent='🥐'" alt="Cachitos venezolanos">
+              </div>
+              <h3 class="mt-4 text-xl text-[#252019]">Cachitos</h3>
+              <p class="mt-1 text-sm text-[#675b4b]">Un favorito de la panadería venezolana, individuales o en box para compartir.</p>
+              <select class="variant-select">
+                <option value="Cachito de Jamón" data-price="5.50">Cachito Jamón — $5.50</option>
+                <option value="Cachito Jamón y Queso Crema" data-price="6">Cachito Jamón y Queso Crema — $6.00</option>
+                <option value="Box 6 und Cachitos Jamón" data-price="30">Box 6 und Cachitos Jamón — $30.00</option>
+                <option value="Box 6 und Cachitos Jamón y Queso Crema" data-price="34">Box 6 und Jamón y Queso Crema — $34.00</option>
+                <option value="Cachitos congelados 6 und" data-price="24">Cachitos congelados 6 und — $24.00</option>
+              </select>
+            </div>
+            <button type="button" class="add-variant-btn action mt-4 w-full min-h-11 rounded-full px-5 py-2 font-bold">
+              Agregar al carrito
+            </button>
+          </article>
+
+          <!-- 3. PAN DE JAMÓN Y PANADERÍA VENEZOLANA -->
+          <article class="product-card rounded-3xl bg-white p-5">
+            <div>
+              <div class="product-art">
+                <img loading="lazy" class="block h-full w-full object-cover object-center" src="../pan de jamon.jpeg" onerror="this.style.display='none';this.parentElement.textContent='🥖'" alt="Panadería venezolana y Pan de Jamón">
+              </div>
+              <h3 class="mt-4 text-xl text-[#252019]">Panadería Venezolana y Pan de Jamón</h3>
+              <p class="mt-1 text-sm text-[#675b4b]">Panes tradicionales recién horneados para disfrutar en familia.</p>
+              <select class="variant-select">
+                <option value="Pan de Jamón tradicional" data-price="37">Pan de Jamón tradicional — $37.00</option>
+                <option value="Pan de Jamón con queso crema" data-price="40">Pan de Jamón con queso crema — $40.00</option>
+                <option value="Pan hojaldre con queso crema" data-price="40">Pan hojaldre con queso crema — $40.00</option>
+                <option value="Pan Andino" data-price="7">Pan Andino — $7.00</option>
+                <option value="Pan Canilla (2 und)" data-price="6">Pan Canilla 2 und — $6.00</option>
+                <option value="Pan dulce piñita (paquete 10 und)" data-price="12">Pan dulce piñita paq. 10 und — $12.00</option>
+                <option value="Pan de queso" data-price="25">Pan de queso — $25.00</option>
+                <option value="Pan de guayaba con queso" data-price="25">Pan de guayaba con queso — $25.00</option>
+              </select>
+            </div>
+            <button type="button" class="add-variant-btn action mt-4 w-full min-h-11 rounded-full px-5 py-2 font-bold">
+              Agregar al carrito
+            </button>
+          </article>
+
+          <!-- 4. BOXES DE TEQUEÑOS / PASTELES / EMPANADAS -->
+          <article class="product-card rounded-3xl bg-white p-5">
+            <div>
+              <div class="product-art">
+                <img loading="lazy" class="block h-full w-full object-cover object-center" src="../box tequenos.jpeg" onerror="this.style.display='none';this.parentElement.textContent='🧀'" alt="Boxes de tequeños, pastelitos y empanadas con salsa verde">
+              </div>
+              <h3 class="mt-4 text-xl text-[#252019]">Boxes Tequeños, Pastelitos y Empanadas</h3>
+              <p class="mt-1 text-sm text-[#675b4b]">Listos para comer con nuestra deliciosa salsa verde.</p>
+              <select class="variant-select">
+                <option value="Tequeños queso ración 6 und" data-price="7">Tequeños queso ración 6 und — $7.00</option>
+                <option value="Tequeños guayaba ración 6 und" data-price="8">Tequeños guayaba ración 6 und — $8.00</option>
+                <option value="Box 20 tequeños de queso" data-price="24">Box 20 tequeños de queso — $24.00</option>
+                <option value="Box 20 tequeños mixtos" data-price="26">Box 20 tequeños mixtos — $26.00</option>
+                <option value="Box 20 pastelitos mixtos" data-price="45">Box 20 pastelitos mixtos — $45.00</option>
+                <option value="Box 20 empanadas mixtas" data-price="50">Box 20 empanadas mixtas — $50.00</option>
+                <option value="Box 15 tequeños + 15 pastelitos" data-price="50">Box 15 tequeños + 15 pastelitos — $50.00</option>
+                <option value="Box 25 tequeños + 25 pastelitos" data-price="80">Box 25 tequeños + 25 pastelitos — $80.00</option>
+                <option value="Box 15 tequeños + 15 empanadas" data-price="55">Box 15 tequeños + 15 empanadas — $55.00</option>
+                <option value="Box 25 tequeños + 25 empanadas" data-price="85">Box 25 tequeños + 25 empanadas — $85.00</option>
+              </select>
+            </div>
+            <button type="button" class="add-variant-btn action mt-4 w-full min-h-11 rounded-full px-5 py-2 font-bold">
+              Agregar al carrito
+            </button>
+          </article>
+
+          <!-- 5. BANDEJAS TEQUEHOME -->
+          <article class="product-card rounded-3xl bg-white p-5">
+            <div>
+              <div class="product-art">
+                <img loading="lazy" class="block h-full w-full object-cover object-center" src="../bandeja tequehome.jpg" onerror="this.style.display='none';this.parentElement.textContent='🥟'" alt="Bandejas fiesteras Tequehome">
+              </div>
+              <h3 class="mt-4 text-xl text-[#252019]">Bandejas Tequehome</h3>
+              <p class="mt-1 text-xs leading-relaxed text-[#675b4b]">Mixtas a elección: tequeños (queso/guayaba), pastelitos (carne/pollo), empanaditas, arepitas (carne/pollo/pepiadas), mini cachitos o mini cachapitas.</p>
+              <select class="variant-select">
+                <option value="Bandeja Tequehome 35 und" data-price="75">Bandeja Tequehome 35 und — $75.00</option>
+                <option value="Bandeja Tequehome 50 und" data-price="115">Bandeja Tequehome 50 und — $115.00</option>
+                <option value="Bandeja Tequehome 70 und" data-price="155">Bandeja Tequehome 70 und — $155.00</option>
+                <option value="Bandeja 50 tequeños queso" data-price="60">Bandeja 50 tequeños queso — $60.00</option>
+                <option value="Bandeja 50 tequeños mixtos (queso, chocolate, guayaba)" data-price="65">Bandeja 50 tequeños mixtos — $65.00</option>
+                <option value="Bandeja 35 und arepitas mixtas" data-price="90">Bandeja 35 und arepitas mixtas — $90.00</option>
+                <option value="Bandeja 50 und arepitas mixtas" data-price="125">Bandeja 50 und arepitas mixtas — $125.00</option>
+              </select>
+            </div>
+            <button type="button" class="add-variant-btn action mt-4 w-full min-h-11 rounded-full px-5 py-2 font-bold">
+              Agregar al carrito
+            </button>
+          </article>
+
+          <!-- 6. CONGELADOS -->
+          <article class="product-card rounded-3xl bg-white p-5">
+            <div>
+              <div class="product-art">
+                <img loading="lazy" class="block h-full w-full object-cover object-center" src="../congelados para la casa tequenos de queso.jpg" onerror="this.style.display='none';this.parentElement.textContent='❄️'" alt="Productos congelados Tequehome">
+              </div>
+              <h3 class="mt-4 text-xl text-[#252019]">Congelados para casa</h3>
+              <p class="mt-1 text-sm text-[#675b4b]">Empacados al vacío, listos para preparar en casa cuando quieras.</p>
+              <select class="variant-select">
+                <option value="Congelados: Tequeños queso 16 und" data-price="14">Tequeños queso 16 und — $14.00</option>
+                <option value="Congelados: Tequeños queso 50 und" data-price="45">Tequeños queso 50 und — $45.00</option>
+                <option value="Congelados: Tequeños queso 100 und" data-price="85">Tequeños queso 100 und — $85.00</option>
+                <option value="Congelados: Pastelitos mixtos 12 und" data-price="24">Pastelitos mixtos 12 und — $24.00</option>
+                <option value="Congelados: Empanaditas 12 und" data-price="26">Empanaditas 12 und — $26.00</option>
+                <option value="Congelados: Cachitos 6 und" data-price="24">Cachitos congelados 6 und — $24.00</option>
+                <option value="Congelados: Golfeados sin queso 6 und" data-price="24">Golfeados sin queso 6 und — $24.00</option>
+              </select>
+            </div>
+            <button type="button" class="add-variant-btn action mt-4 w-full min-h-11 rounded-full px-5 py-2 font-bold">
+              Agregar al carrito
+            </button>
+          </article>
+
+          <!-- 7. HALLACAS Y COMIDA NAVIDEÑA -->
+          <article class="product-card rounded-3xl bg-white p-5">
+            <div>
+              <div class="product-art">
+                <img loading="lazy" class="block h-full w-full object-cover object-center" src="../hallaca.jpg" onerror="this.style.display='none';this.parentElement.textContent='🫔'" alt="Hallacas y Comida Navideña">
+              </div>
+              <h3 class="mt-4 text-xl text-[#252019]">Hallacas y Comida Navideña</h3>
+              <p class="mt-1 text-sm text-[#675b4b]">Hallacas de res, cerdo y pollo, pernil, asado negro y ensalada de gallina.</p>
+              <select class="variant-select">
+                <option value="Hallaca tradicional (res, cerdo y pollo)" data-price="12">Hallaca (res, cerdo y pollo) — $12.00</option>
+                <option value="Pernil 4 personas (800gr)" data-price="36">Pernil 4 personas (800gr) — $36.00</option>
+                <option value="Pernil 6 personas (1.2kg)" data-price="54">Pernil 6 personas (1,2kg) — $54.00</option>
+                <option value="Asado negro 4 personas (800gr)" data-price="44">Asado negro 4 personas (800gr) — $44.00</option>
+                <option value="Asado negro 6 personas (1.2kg)" data-price="66">Asado negro 6 personas (1,2kg) — $66.00</option>
+                <option value="Ensalada navideña 4 personas (1kg)" data-price="28">Ensalada 4 personas (1kg) — $28.00</option>
+                <option value="Ensalada navideña 6 personas (1.5kg)" data-price="40">Ensalada 6 personas (1,5kg) — $40.00</option>
+              </select>
+            </div>
+            <button type="button" class="add-variant-btn action mt-4 w-full min-h-11 rounded-full px-5 py-2 font-bold">
+              Agregar al carrito
+            </button>
+          </article>
+
+          <!-- 8. TORTAS TRES LECHES Y PARCHITA -->
+          <article class="product-card rounded-3xl bg-white p-5">
+            <div>
+              <div class="product-art">
+                <img loading="lazy" class="block h-full w-full object-cover object-center" src="../torta fria tradicional.jpg" onerror="this.style.display='none';this.parentElement.textContent='🍰'" alt="Tres Leches y Tortas Frías">
+              </div>
+              <h3 class="mt-4 text-xl text-[#252019]">Tres Leches y Tortas Frías</h3>
+              <p class="mt-1 text-sm text-[#675b4b]">Tradicional, con toppings (fresa, arequipe, melocotón, Nutella, Oreo) o de parchita.</p>
+              <select class="variant-select">
+                <option value="Tres Leches tradicional 8'" data-price="35">Tres Leches tradicional 8' — $35.00</option>
+                <option value="Tres Leches tradicional 12'" data-price="70">Tres Leches tradicional 12' — $70.00</option>
+                <option value="Tres Leches 8' con topping (fresa/arequipe/melocotón/nutella/oreo)" data-price="45">Tres Leches 8' con topping — $45.00</option>
+                <option value="Tres Leches 12' con topping (fresa/arequipe/melocotón/nutella/oreo)" data-price="80">Tres Leches 12' con topping — $80.00</option>
+                <option value="Torta fría de parchita (maracuyá) 8'" data-price="40">Torta fría de parchita 8' — $40.00</option>
+                <option value="Torta fría de parchita (maracuyá) 12'" data-price="80">Torta fría de parchita 12' — $80.00</option>
+              </select>
+            </div>
+            <button type="button" class="add-variant-btn action mt-4 w-full min-h-11 rounded-full px-5 py-2 font-bold">
+              Agregar al carrito
+            </button>
+          </article>
+
+          <!-- 9. DULCES NAVIDEÑOS -->
+          <article class="product-card rounded-3xl bg-white p-5">
+            <div>
+              <div class="product-art">
+                <img loading="lazy" class="block h-full w-full object-cover object-center" src="../torta negra.jpg" onerror="this.style.display='none';this.parentElement.textContent='🍒'" alt="Dulces Navideños">
+              </div>
+              <h3 class="mt-4 text-xl text-[#252019]">Dulces Navideños</h3>
+              <p class="mt-1 text-sm text-[#675b4b]">El toque dulce tradicional de nuestras fiestas decembrinas.</p>
+              <select class="variant-select">
+                <option value="Torta Negra Navideña 8'" data-price="40">Torta Negra 8' — $40.00</option>
+                <option value="Dulce de lechosa 500gr" data-price="15">Dulce de lechosa 500gr — $15.00</option>
+              </select>
+            </div>
+            <button type="button" class="add-variant-btn action mt-4 w-full min-h-11 rounded-full px-5 py-2 font-bold">
+              Agregar al carrito
+            </button>
+          </article>
+
+          <!-- 10. DESAYUNOS DECORADOS -->
+          <article class="product-card rounded-3xl border border-[#eadbc5] bg-white p-5 sm:col-span-2 lg:col-span-1">
+            <div>
+              <div class="product-art">
+                <img loading="lazy" class="block h-full w-full object-cover object-center" src="../desayunos decorados.jpg" onerror="this.style.display='none';this.parentElement.textContent='🎁'" alt="Desayunos Decorados">
+              </div>
+              <h3 class="mt-4 text-xl text-[#252019]">Desayunos Decorados</h3>
+              <p class="mt-1 text-xs leading-relaxed text-[#675b4b]">Incluye: 2 cachitos, 4 pastelitos, 4 empanaditas, 1 ración de tequeños (6 und), jugo o Malta Polar, postre (golfeado, tarta de frutas o milhojas), tarjeta con dedicatoria y bombones.</p>
+              <select class="variant-select">
+                <option value="Box Desayuno Decorado" data-price="85">Box Desayuno Decorado — $85.00</option>
+                <option value="Caja de Madera Desayuno Decorado (incluye globos)" data-price="130">Caja de Madera Decorada (con globos) — $130.00</option>
+              </select>
+            </div>
+            <button type="button" class="add-variant-btn action mt-4 w-full min-h-11 rounded-full px-5 py-2 font-bold">
+              Agregar al carrito
+            </button>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- PEDIDO PERSONALIZADO -->
+    <section id="personaliza" class="soft-grid px-5 py-20 md:px-8" style="background: rgb(255, 249, 239);">
+      <div class="mx-auto max-w-4xl rounded-3xl border border-[#eadbc5] bg-white p-6 shadow-sm md:p-10">
+        <p class="font-bold uppercase tracking-[.25em]" style="color: rgb(138, 87, 14); font-size: 13px;">PARA TUS REUNIONES Y EVENTOS</p>
+        <h2 class="mt-2" style="color: rgb(37, 32, 25); font-weight: 600; font-size: 24px;">Pedido personalizado</h2>
+        <p class="mt-2" style="color: rgb(103, 91, 75); font-size: 16px;">Si eliges una Bandeja Mixta, una Tres Leches con topping o un Desayuno Decorado, también puedes indicarnos aquí tus sabores preferidos o detalles de tu evento.</p>
+
+        <form id="custom-order-form" class="mt-6 grid gap-4 sm:grid-cols-2">
+          <div>
+            <label for="client-name" class="block text-sm font-bold text-[#252019]">Tu nombre</label>
+            <input id="client-name" type="text" required placeholder="Ej. Familia Gómez" class="mt-1.5 w-full rounded-2xl border border-[#eadbc5] bg-[#fffdf8] px-4 py-3 text-sm">
+          </div>
+          <div>
+            <label for="event-date" class="block text-sm font-bold text-[#252019]">Fecha estimada o día de entrega</label>
+            <input id="event-date" type="text" placeholder="Ej. Sábado por la mañana" class="mt-1.5 w-full rounded-2xl border border-[#eadbc5] bg-[#fffdf8] px-4 py-3 text-sm">
+          </div>
+          <div class="sm:col-span-2">
+            <label for="order-details" class="block text-sm font-bold text-[#252019]">¿Qué te gustaría encargar?</label>
+            <textarea id="order-details" rows="3" required placeholder="Ej. Quiero una Bandeja Tequehome de 50 und con tequeños de guayaba, pastelitos de pollo y arepitas reina pepiada..." class="mt-1.5 w-full rounded-2xl border border-[#eadbc5] bg-[#fffdf8] px-4 py-3 text-sm"></textarea>
+          </div>
+          <div class="sm:col-span-2">
+            <button type="submit" class="action inline-flex min-h-12 items-center gap-2 rounded-full px-7 py-3 font-bold">
+              <span>Enviar consulta por WhatsApp</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- CONTACTO / FOOTER -->
+  <footer id="contacto" class="border-t border-[#eadbc5] bg-[#fffdf8] px-5 py-14 md:px-8">
+    <div class="mx-auto grid max-w-7xl gap-8 md:grid-cols-3">
+      <div>
+        <h3 class="text-xl font-bold text-[#252019]">Tequehome</h3>
+        <p class="mt-2 text-sm leading-relaxed text-[#675b4b]">De nuestra masa a tu mesa. Panadería y sabores venezolanos preparados con cariño para compartir en familia.</p>
+      </div>
+      <div>
+        <h3 class="text-lg font-bold text-[#252019]">Ubicación</h3>
+        <p class="mt-2 text-sm text-[#675b4b]">4117 31st Av, Astoria, Queens, New York 11103</p>
+        <p class="mt-1 text-sm text-[#795d43]">Atención y encargos vía WhatsApp: +1 (929) 413-9124</p>
+      </div>
+      <div class="flex flex-col items-start md:items-end">
+        <a href="https://wa.link/yai5h1" target="_blank" rel="noopener noreferrer" class="action inline-flex min-h-11 items-center rounded-full px-6 py-2.5 text-sm font-bold">
+          Hablar por WhatsApp
+        </a>
+        <p class="mt-3 text-xs text-[#675b4b]">© Tequehome · Sabores venezolanos</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- CARRITO LATERAL CON CÁLCULO DE TOTAL -->
+  <div id="cart-drawer" class="fixed inset-0 z-50 hidden" role="dialog" aria-modal="true" aria-label="Carrito de pedido">
+    <div id="cart-backdrop" class="drawer-backdrop fixed inset-0"></div>
+    <div class="drawer fixed right-0 top-0 flex h-full w-full max-w-md flex-col justify-between bg-[#fffdf8] p-6">
+      <div>
+        <div class="flex items-center justify-between border-b border-[#eadbc5] pb-4">
+          <h3 class="text-xl font-bold text-[#252019]">Tu pedido</h3>
+          <button id="close-cart" type="button" class="rounded-full p-2 text-[#252019] hover:bg-[#f8ebd5]" aria-label="Cerrar carrito">✕</button>
+        </div>
+        <div id="cart-items" class="mt-5 flex max-h-[50vh] flex-col gap-3 overflow-y-auto"></div>
+      </div>
+
+      <div class="border-t border-[#eadbc5] pt-4">
+        <div class="mb-3 flex items-center justify-between text-lg font-bold text-[#252019]">
+          <span>Total estimado:</span>
+          <span id="cart-total">$0.00</span>
+        </div>
+        <label for="cart-note" class="block text-xs font-bold text-[#675b4b]">Sabores elegidos o nota adicional (opcional):</label>
+        <input id="cart-note" type="text" placeholder="Ej. Topping de Nutella / Sabores de la bandeja..." class="mt-1 mb-3 w-full rounded-xl border border-[#eadbc5] bg-white px-3 py-2 text-sm">
+        <button id="send-cart-whatsapp" type="button" class="action w-full rounded-full py-3.5 font-bold">
+          Enviar pedido por WhatsApp
+        </button>
+        <button id="clear-cart" type="button" class="mt-2 w-full rounded-full py-2 text-xs font-semibold text-[#795d43] hover:underline">
+          Vaciar carrito
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- NOTIFICACIÓN TOAST -->
+  <div id="toast" class="toast pointer-events-none fixed bottom-5 right-5 z-50 translate-y-3 rounded-full bg-[#252019] px-5 py-3 text-sm font-bold text-[#fff9ef] opacity-0 shadow-lg">
+    Producto agregado al carrito
+  </div>
+
+  <script>
+    lucide.createIcons();
+
+    const WHATSAPP_PHONE = "19294139124";
+
+    let cart = {};
+    const cartCount = document.getElementById('cart-count');
+    const cartTotalEl = document.getElementById('cart-total');
+    const cartDrawer = document.getElementById('cart-drawer');
+    const cartItems = document.getElementById('cart-items');
+    const toast = document.getElementById('toast');
+
+    function showToast(text) {
+      toast.textContent = text;
+      toast.classList.remove('opacity-0', 'translate-y-3');
+      setTimeout(() => toast.classList.add('opacity-0', 'translate-y-3'), 2200);
+    }
+
+    document.querySelectorAll('.add-variant-btn').forEach((button) => {
+      button.addEventListener('click', () => {
+        const card = button.closest('article');
+        const select = card.querySelector('.variant-select');
+        const selectedOption = select.options[select.selectedIndex];
+        const name = selectedOption.value;
+        const price = parseFloat(selectedOption.dataset.price || 0);
+
+        if (!cart[name]) {
+          cart[name] = { qty: 1, price: price };
+        } else {
+          cart[name].qty += 1;
+        }
+
+        renderCart();
+        showToast(`✓ ${name} ($${price.toFixed(2)}) agregado`);
+      });
+    });
+
+    function updateQty(name, delta) {
+      if (!cart[name]) return;
+      cart[name].qty += delta;
+      if (cart[name].qty <= 0) delete cart[name];
+      renderCart();
+    }
+
+    function renderCart() {
+      const entries = Object.entries(cart);
+      const totalCount = entries.reduce((sum, [, item]) => sum + item.qty, 0);
+      const totalAmount = entries.reduce((sum, [, item]) => sum + (item.qty * item.price), 0);
+
+      cartCount.textContent = totalCount;
+      cartTotalEl.textContent = `$${totalAmount.toFixed(2)}`;
+
+      if (entries.length === 0) {
+        cartItems.innerHTML = '<p class="py-10 text-center text-sm text-[#675b4b]">Tu carrito está vacío. Elige tus favoritos del menú.</p>';
+        return;
+      }
+
+      cartItems.innerHTML = entries.map(([name, item]) => {
+        const safeName = name.replace(/'/g, "\\'");
+        const subtotal = (item.qty * item.price).toFixed(2);
+        return `
+          <div class="flex items-center justify-between gap-2 rounded-2xl border border-[#eadbc5] bg-white p-3.5">
+            <div class="text-sm">
+              <p class="font-bold text-[#252019]">${name}</p>
+              <p class="text-xs text-[#795d43]">$${item.price.toFixed(2)} c/u · Subtotal: <strong>$${subtotal}</strong></p>
+            </div>
+            <div class="flex items-center gap-2">
+              <button type="button" onclick="updateQty('${safeName}', -1)" class="h-8 w-8 rounded-full border border-[#795d43] font-bold">-</button>
+              <span class="w-5 text-center font-bold">${item.qty}</span>
+              <button type="button" onclick="updateQty('${safeName}', 1)" class="h-8 w-8 rounded-full bg-[#e9a427] font-bold">+</button>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    document.getElementById('open-cart').addEventListener('click', () => {
+      renderCart();
+      cartDrawer.classList.remove('hidden');
+    });
+
+    document.getElementById('close-cart').addEventListener('click', () => cartDrawer.classList.add('hidden'));
+    document.getElementById('cart-backdrop').addEventListener('click', () => cartDrawer.classList.add('hidden'));
+    document.getElementById('clear-cart').addEventListener('click', () => {
+      cart = {};
+      renderCart();
+    });
+
+    function redirectToWhatsApp(message) {
+      const cleanPhone = WHATSAPP_PHONE.replace(/\D/g, '');
+      window.open(`https://wa.me/${cleanPhone}?text=${encodeURIComponent(message)}`, '_blank');
+    }
+
+    document.getElementById('send-cart-whatsapp').addEventListener('click', () => {
+      const entries = Object.entries(cart);
+      if (entries.length === 0) {
+        alert("Agrega al menos un producto al carrito para hacer el pedido.");
+        return;
+      }
+      const note = document.getElementById('cart-note').value.trim();
+      const totalAmount = entries.reduce((sum, [, item]) => sum + (item.qty * item.price), 0);
+      const lines = entries.map(([name, item]) => `• ${item.qty}x ${name} ($${(item.qty * item.price).toFixed(2)})`).join('\n');
+      
+      let msg = `¡Hola Tequehome! 🥖 Quiero realizar el siguiente pedido:\n\n${lines}\n\n*Total estimado: $${totalAmount.toFixed(2)}*`;
+      if (note) msg += `\n\nNota / Sabores: ${note}`;
+      redirectToWhatsApp(msg);
+    });
+
+    document.getElementById('custom-order-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('client-name').value.trim();
+      const date = document.getElementById('event-date').value.trim();
+      const details = document.getElementById('order-details').value.trim();
+      let msg = `¡Hola Tequehome! Soy ${name}. Quiero consultar por un pedido personalizado:\n\n${details}`;
+      if (date) msg += `\nFecha/Día estimado: ${date}`;
+      redirectToWhatsApp(msg);
+    });
+  </script>
+</body>
+</html>
